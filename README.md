@@ -18,22 +18,21 @@ This dynamically generates blog articles to the page based on what the user inpu
 
 ## Architecture
 ### Languages Used: 
-1. HTML
-2. CSS
-3. JavaScript
+1. HTML (skeletal structure of our app)
+2. CSS (Styling of the view layer)
+3. JavaScript (Controller)
 ### Libraries Used:
-1. jQuery
-2. Handlebars JS
+1. jQuery (DOM traversal, selection, and manipulation)
+2. Handlebars JS (templating)
 ### Frameworks Used:
-1. Node JS
+1. Node JS 
 2. Express JS
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
-
-## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
-```
+9:00 - Forked the original repo and cloning it to our local machines
+9:05 - Reading through the instructions and User Stories in order to understand what was being asked of us.
+9:10 - Created templates using Handlebars JS
+9:20 - Refactoring of the old forEach() method.
+9:45 - Chaining of the .map and .reduce() methods.
+10:00 - Implementing the word counter for each author
+10:30 - Wrapping code within an IIFE. 
