@@ -36,16 +36,25 @@ Article.fetchAll = callback => {
 };
 
 Article.numWordsAll = () => {
-  return Article.all.map(body => this.body.split(' ').length).reduce((acc,cur) => { return acc+cur});
+  return Article.all.map(article => article.body.split(' ').length).reduce((acc,cur) => { return acc+cur});
 };
 
 Article.allAuthors = () => {
-  return Article.all.map(author => this.author).reduce();
+  return Article.all.map(article => article.author).sort().reduce((init,cur,) => {
+    if(init.length === 0 || init[init.length - 1] !== cur) {
+      init.push(cur);
+    }
+    return init;
+  }, []);
 };
 
 Article.numWordsByAuthor = () => {
-  return Article.allAuthors().map(author => {
-    
+  return Article.allAuthors().map(currentAuthor => {
+    let authorStats = {
+      authorName: author,
+      totalWords: Articles.all.filter(currentAuthor => currentAuthor === article.author).map(article => article.body.split(' ').length).reduce((acc, cur) => acc + cur),
+    }
+    console.log(currentAuthor);
   })
 };
     
