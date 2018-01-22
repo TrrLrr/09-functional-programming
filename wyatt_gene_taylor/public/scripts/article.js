@@ -38,11 +38,11 @@ Article.fetchAll = callback => {
 };
 
 Article.numWordsAll = () => {
-  return Article.all.map(article => article.body.split(' ').length).reduce((acc,cur) => acc+cur);
+  return Article.all.map(art => art.body.split(' ').length).reduce((acc,cur) => acc+cur);
 };
 
 Article.allAuthors = () => {
-  return Article.all.map(article => article.author).sort().reduce((init,cur,) => {
+  return Article.all.map(art => art.author).sort().reduce((init,cur,) => {
     if(init.length === 0 || init[init.length - 1] !== cur) {
       init.push(cur);
     }
@@ -51,9 +51,9 @@ Article.allAuthors = () => {
 };
 
 Article.numWordsByAuthor = () => {
-  return Article.allAuthors().map(currentAuthor => {
-    var totWords = Articles.all.filter(currentAuthor => currentAuthor === article.author).map(article => article.body.split(' ').length).reduce((acc, cur) => acc + cur);
-      return {name: currentAuthor, words: totWords };
+  return Article.allAuthors().map(author => {
+    var totWords = Article.all.filter(article => article.author === author).map(art => art.body.split(' ').length).reduce((acc, cur) => acc + cur);
+      return {name: author, words: totWords };
     })
   };
       
