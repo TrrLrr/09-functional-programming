@@ -1,6 +1,7 @@
 'use strict';
 var app = app || {};
 
+(function(module){
 var articleView = {};
 
 articleView.populateFilters = () => {
@@ -88,7 +89,7 @@ articleView.create = () => {
   var article;
   $('#articles').empty();
 
-  article = new Article({
+  article = new app.Article({
     title: $('#article-title').val(),
     author: $('#article-author').val(),
     authorUrl: $('#article-author-url').val(),
@@ -103,7 +104,7 @@ articleView.create = () => {
 
 articleView.submit = event => {
   event.preventDefault();
-  let article = new Article({
+  let article = new app.Article({
     title: $('#article-title').val(),
     author: $('#article-author').val(),
     authorUrl: $('#article-author-url').val(),
@@ -142,3 +143,6 @@ articleView.initAdminPage = () => {
 
   //return statsTemplate();
 };
+
+module.articleView = articleView;
+})(app);
