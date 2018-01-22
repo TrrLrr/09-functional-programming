@@ -25,15 +25,16 @@ Article.loadAll = rawData => {
   rawData.forEach(articleObject => Article.all.push(new Article(articleObject)));
   */
   Article.all = rawData.map(articleObject => new Article(articleObject));
-  console.log(Article.all);
+  
 };
 
 Article.fetchAll = callback => {
   $.get('/articles')
     .then(results => {
       Article.loadAll(results);
-      callback();
     })
+    .then(callback);
+      
 };
 
 Article.numWordsAll = () => {
@@ -51,13 +52,13 @@ Article.allAuthors = () => {
 
 Article.numWordsByAuthor = () => {
   return Article.allAuthors().map(currentAuthor => {
-    let authorStats = {
-      authorName: currentAuthor,
-      totalWords: Articles.all.filter(currentAuthor => currentAuthor === article.author).map(article => article.body.split(' ').length).reduce((acc, cur) => acc + cur),
-    }
-    console.log(currentAuthor);
-  })
-};
+    var totWords = Articles.all.filter(currentAuthor => currentAuthor === article.author).map(article => article.body.split(' ').length).reduce((acc, cur) => acc + cur);
+      return {name: currentAuthor, words: totWords };
+    })
+  };
+      
+    
+    
     
 
 
